@@ -1,0 +1,12 @@
+{
+  "name": "evolution-manager-translate",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "translate": "node translate.mjs",
+    "check": "node translate.mjs --check"
+  },
+  "dependencies": {
+    "acorn": "^8.12.0"
+  }
+}

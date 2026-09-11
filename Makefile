@@ -1,4 +1,4 @@
-.PHONY: help dev run build test clean swagger deps docker-build docker-run install setup migrate-up migrate-down logs
+.PHONY: help dev run build test clean swagger manager-translate deps docker-build docker-run install setup migrate-up migrate-down logs
 
 # Configurações
 APP_NAME=evolution-go
@@ -119,6 +119,10 @@ deps-reset: ## Limpa cache e reinstala dependências (força uso do código loca
 	@echo "$(GREEN)✅ Dependências resetadas e atualizadas$(NC)"
 
 ##@ Documentação
+
+manager-translate: ## Traduz o bundle do Manager (pt -> en) via manager/translate/pt-en.json
+	@echo "$(GREEN)🌐 Traduzindo manager/dist para inglês...$(NC)"
+	@cd manager/translate && npm install --silent && node translate.mjs && node translate.mjs --check
 
 swagger: ## Gera documentação Swagger
 	@echo "$(GREEN)📚 Gerando documentação Swagger...$(NC)"
